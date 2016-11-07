@@ -6,8 +6,11 @@
 //
 //
 
-import UIKit
 
-class LeagueTable: NSObject {
+public class LeagueTable: NSObject {
 
+    var caption: String?
+    var matchday: Int?
+    var standing: Array <LeagueTableItem>?
+    var links: Dictionary <String, Dictionary <String, String>>?
 }

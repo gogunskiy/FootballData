@@ -6,8 +6,13 @@
 //
 //
 
-import UIKit
-
-class Team: NSObject {
-
+public class Team: NSObject {
+    
+    var name: String?
+    var code: String?
+    var shortName: String?
+    var squadMarketValue: String?
+    var crestUrl: String?
+    var links: Dictionary <String, Dictionary <String, String>>?
 }
+
