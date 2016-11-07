@@ -1,0 +1,16 @@
+PODS:
+  - FootballData (0.1.0)
+
+DEPENDENCIES:
+  - FootballData (from `../`)
+
+EXTERNAL SOURCES:
+  FootballData:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FootballData: ffc34efd4a873aa67977c1038cb2ed39878dca09
+
+PODFILE CHECKSUM: d8ec98120c77c7b3125c175f7b6a6a1810168c08
+
+COCOAPODS: 1.1.1

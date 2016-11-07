@@ -1,0 +1,6 @@
+framework module FootballData {
+  umbrella header "FootballData-umbrella.h"
+
+  export *
+  module * { export * }
+}
