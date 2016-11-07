@@ -1,0 +1,22 @@
+{
+  "name": "FootballData",
+  "version": "0.1.0",
+  "summary": "A short description of FootballData.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/FootballData",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Volodymyr Hohunskyi": "volodymyr.hohunskyi@accenture.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/FootballData.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "FootballData/Classes/**/*"
+}
