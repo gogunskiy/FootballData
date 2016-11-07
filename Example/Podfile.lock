@@ -1,7 +1,9 @@
 PODS:
+  - Alamofire (4.0.1)
   - FootballData (0.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - FootballData (from `../`)
 
 EXTERNAL SOURCES:
@@ -9,8 +11,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   FootballData: ffc34efd4a873aa67977c1038cb2ed39878dca09
 
-PODFILE CHECKSUM: d8ec98120c77c7b3125c175f7b6a6a1810168c08
+PODFILE CHECKSUM: 6d6a6867184aef88e3824c88dcce773d98cf887d
 
 COCOAPODS: 1.1.1
