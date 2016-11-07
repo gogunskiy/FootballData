@@ -1,6 +1,9 @@
 use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '10.0'
 
 target 'FootballData_Example' do
+  pod 'Alamofire', '~> 4.0'
   pod 'FootballData', :path => '../'
 
   target 'FootballData_Tests' do
