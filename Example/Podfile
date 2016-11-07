@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FootballData_Example' do
+  pod 'FootballData', :path => '../'
+
+  target 'FootballData_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
