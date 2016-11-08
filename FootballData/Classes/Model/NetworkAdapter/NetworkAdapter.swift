@@ -9,9 +9,26 @@
 import UIKit
 
 public protocol NetworkAdapter {
-    
+    func fetchData(url: String, compleion:  @escaping (Data?, Error?) -> ())
 }
 
 public class DefaultNetworkAdapter: NSObject, NetworkAdapter {
+
+    public func fetchData(url: String, compleion: @escaping (Data?, Error?) -> ()) {
+
+        let url = NSURL(string: url);
+        let session = URLSession.shared
+        let request = NSMutableURLRequest(url:url! as URL);
+        
+        request.httpMethod = "GET"
+
+        let task = session.dataTask(with: request as! URLRequest) {
+            (data, response, error) in
+            compleion(data, error)
+        }
+        
+        task.resume()
+        
+    }
 
 }

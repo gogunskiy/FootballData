@@ -7,7 +7,7 @@
 //
 
 
-public class LeagueTableItem: NSObject {
+public class CompetitionTableTeam: NSObject {
 
     var links: Dictionary <String, Dictionary <String, String>>?
     var position: Int?
@@ -15,12 +15,16 @@ public class LeagueTableItem: NSObject {
     var crestURI: String?
     var playedGames: Int?
     var points: Int?
+    var goalDifference: Int?
+    var score: CompetitionTableScore?
+    var homeScore: CompetitionTableScore?
+    var awayScore: CompetitionTableScore?
+}
+
+public class CompetitionTableScore {
     var goals: Int?
     var goalsAgainst: Int?
-    var goalDifference: Int?
     var wins: Int?
     var draws: Int?
     var losses: Int?
-    var home: Dictionary<String, Int>?
-    var away: Dictionary<String, Int>?
 }
