@@ -1,5 +1,5 @@
 //
-//  LeagueTable.swift
+//  CompetitionTable.swift
 //  Pods
 //
 //  Created by Hohunskyi, Volodymyr on 11/7/16.
@@ -7,10 +7,10 @@
 //
 
 
-public class LeagueTable: NSObject {
+public class CompetitionTable: NSObject {
 
-    var caption: String?
+    var leagueCaption: String?
     var matchday: Int?
-    var standing: Array <LeagueTableItem>?
+    var standing: Array <CompetitionTableTeam>?
     var links: Dictionary <String, Dictionary <String, String>>?
 }

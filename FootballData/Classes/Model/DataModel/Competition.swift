@@ -16,6 +16,6 @@ public class Competition: NSObject {
     var numberOfMatchdays: Int?
     var numberOfTeams: Int?
     var numberOfGames: Int?
-    var lastUpdated: Int?
+    var lastUpdated: String?
     var links: Dictionary <String, Dictionary <String, String>>?
 }
