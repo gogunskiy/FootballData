@@ -20,6 +20,7 @@ public class DefaultNetworkAdapter: NSObject, NetworkAdapter {
         let session = URLSession.shared
         let request = NSMutableURLRequest(url:url! as URL);
         
+        request.addValue("bf4a43952c7540e2a427b68efea76f1b", forHTTPHeaderField: "X-Auth-Token")
         request.httpMethod = "GET"
 
         let task = session.dataTask(with: request as! URLRequest) {
