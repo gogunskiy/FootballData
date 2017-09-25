@@ -1,6 +1,5 @@
 # FootballData
 
-[![CI Status](http://img.shields.io/travis/Volodymyr Hohunskyi/FootballData.svg?style=flat)](https://travis-ci.org/Volodymyr Hohunskyi/FootballData)
 [![Version](https://img.shields.io/cocoapods/v/FootballData.svg?style=flat)](http://cocoapods.org/pods/FootballData)
 [![License](https://img.shields.io/cocoapods/l/FootballData.svg?style=flat)](http://cocoapods.org/pods/FootballData)
 [![Platform](https://img.shields.io/cocoapods/p/FootballData.svg?style=flat)](http://cocoapods.org/pods/FootballData)
@@ -22,7 +21,7 @@ pod "FootballData"
 
 ## Author
 
-Volodymyr Hohunskyi, volodymyr.hohunskyi@accenture.com
+Volodymyr Hohunskyi, volodymyr.hohunskyi@gmail.com
 
 ## License
 

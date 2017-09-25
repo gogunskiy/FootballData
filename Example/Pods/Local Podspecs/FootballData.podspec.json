@@ -1,7 +1,7 @@
 {
   "name": "FootballData",
   "version": "0.1.0",
-  "summary": "A short description of FootballData.",
+  "summary": "OpenSource Fetcher of http://www.football-data.org.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/<GITHUB_USERNAME>/FootballData",
   "license": {

@@ -6,99 +6,76 @@
 //
 //
 
+public protocol NetworkAdapter {
+    func fetchData(url: String, compleion:  @escaping (Data?, Error?) -> ())
+}
 
-public class FDManager: NSObject {
-
-    private static let sharedInstance = FDManager()
+public class FDManager {
+    
     private var networkAdapter: NetworkAdapter = DefaultNetworkAdapter()
+    private var baseURL: String = "http://api.football-data.org/v1"
+    
+    public init(with baseURL:String? = nil, with networkAdapter: NetworkAdapter? = nil) {
+        if let url = baseURL {
+            self.baseURL = url
+        }
+        
+        if let adapter = networkAdapter {
+            self.networkAdapter = adapter
+        }
+    }
 
-    public class func setNetworkAdapter(networkAdapter: NetworkAdapter) {
-        sharedInstance.networkAdapter = networkAdapter
-    }
-    
-    public class func fetchAllCompetitions(season: Int, result: @escaping ([Competition]) -> Void) {
-        sharedInstance.fetchAllCompetitions(season: season, result: result)
-    }
-    
-    public class func fetchCompetition(competition: Int, result: @escaping (Competition?) -> Void) {
-        sharedInstance.fetchCompetition(competition: competition, result: result)
-    }
-    
-    public class func fetchCompetitionTeams(competition: Int, result: @escaping ([Team]) -> Void) {
-        sharedInstance.fetchCompetitionTeams(competition: competition, result: result)
-    }
-    
-    public class func fetchCompetitionFixtures(competition: Int, result: @escaping ([Fixture]) -> Void) {
-        sharedInstance.fetchCompetitionFixtures(competition: competition, result: result)
-    }
-    
-    public class func fetchTeamFixtures(team: Int, result: @escaping ([Fixture]) -> Void) {
-        sharedInstance.fetchTeamFixtures(team: team, result: result)
-    }
-    
-    public class func fetchTeam(team: Int, result: @escaping (Team?) -> Void)  {
-        sharedInstance.fetchTeam(team: team, result: result)
-    }
-    
-    public class func fetchTeamPlayers(team: Int, result: @escaping ([Player]) -> Void) {
-        sharedInstance.fetchTeamPlayers(team: team, result: result)
-    }
-    
-    public class func fetchCompetitionTable(competition: Int, result: @escaping (CompetitionTable?) -> Void) {
-        sharedInstance.fetchCompetitionTable(competition: competition, result: result)
-    }
-    
-    func fetchAllCompetitions(season: Int, result: @escaping ([Competition]) -> Void) {
-        networkAdapter.fetchData(url: "http://api.football-data.org/v1/competitions/?season=\(season)") {
+    public func fetchAllCompetitions(season id: Int, result: @escaping ([Competition]) -> Void) {
+        networkAdapter.fetchData(url: "\(baseURL)/competitions/?season=\(id)") {
             (data , error) in
             result(DataParser.parseCompetitions(data: data))
         }
     }
     
-    func fetchCompetition(competition: Int, result: @escaping (Competition?) -> Void) {
-        networkAdapter.fetchData(url: "http://api.football-data.org/v1/competitions/\(competition)") {
+    public func fetch(competition id: Int, result: @escaping (Competition?) -> Void) {
+        networkAdapter.fetchData(url: "\(baseURL)/competitions/\(id)") {
             (data , error) in
             result(DataParser.parseCompetition(data: data))
         }
     }
     
-    func fetchCompetitionTeams(competition: Int, result: @escaping ([Team]) -> Void) {
-        networkAdapter.fetchData(url: "http://api.football-data.org/v1/competitions/\(competition)/teams") {
+    public func fetchTeams(forCompetition id: Int, result: @escaping ([Team]) -> Void) {
+        networkAdapter.fetchData(url: "\(baseURL)/competitions/\(id)/teams") {
             (data , error) in
             result(DataParser.parseTeams(data: data))
         }
     }
     
-    func fetchTeam(team: Int, result: @escaping (Team?) -> Void) {
-        networkAdapter.fetchData(url: "http://api.football-data.org/v1/teams/\(team)") {
+    public func fetch(team id: Int, result: @escaping (Team?) -> Void) {
+        networkAdapter.fetchData(url: "\(baseURL)/teams/\(id)") {
             (data , error) in
             result(DataParser.parseTeam(data: data))
         }
     }
     
-    func fetchTeamPlayers(team: Int, result: @escaping ([Player]) -> Void) {
-        networkAdapter.fetchData(url: "http://api.football-data.org/v1/teams/\(team)/players") {
+    public func fetchPlayers(forTeam id: Int, result: @escaping ([Player]) -> Void) {
+        networkAdapter.fetchData(url: "\(baseURL)/teams/\(id)/players") {
             (data , error) in
             result(DataParser.parsePlayers(data: data))
         }
     }
     
-    func fetchCompetitionFixtures(competition: Int, result: @escaping ([Fixture]) -> Void) {
-        networkAdapter.fetchData(url: "http://api.football-data.org/v1/competitions/\(competition)/fixtures") {
+    public func fetchFixtures(forCompetition id: Int, result: @escaping ([Fixture]) -> Void) {
+        networkAdapter.fetchData(url: "\(baseURL)/competitions/\(id)/fixtures") {
             (data , error) in
             result(DataParser.parseFixtures(data: data))
         }
     }
     
-    func fetchTeamFixtures(team: Int, result: @escaping ([Fixture]) -> Void) {
-        networkAdapter.fetchData(url: "http://api.football-data.org/v1/teams/\(team)/fixtures") {
+    public func fetchFixtures(forTeam id: Int, result: @escaping ([Fixture]) -> Void) {
+        networkAdapter.fetchData(url: "\(baseURL)/teams/\(id)/fixtures") {
             (data , error) in
             result(DataParser.parseFixtures(data: data))
         }
     }
     
-    func fetchCompetitionTable(competition: Int, result: @escaping (CompetitionTable?) -> Void) {
-        networkAdapter.fetchData(url: "http://api.football-data.org/v1/competitions/\(competition)/leagueTable") {
+    public func fetchLeagueTable(forCompetition id: Int, result: @escaping (CompetitionTable?) -> Void) {
+        networkAdapter.fetchData(url: "\(baseURL)/competitions/\(id)/leagueTable") {
             (data , error) in
             result(DataParser.parseLeague(data: data))
         }

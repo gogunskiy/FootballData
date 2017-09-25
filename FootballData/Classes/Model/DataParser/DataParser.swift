@@ -109,7 +109,7 @@ public class DataParser: NSObject {
     
     private class func fulfillCompetition(json: Dictionary <String, AnyObject>) -> Competition {
        
-        var competition = Competition()
+        let competition = Competition()
         
         competition.id = json["id"] as? Int
         competition.caption = json["caption"] as? String
@@ -127,7 +127,7 @@ public class DataParser: NSObject {
     
     private class func fulfillTeam(json: Dictionary <String, AnyObject>) -> Team {
         
-        var team = Team()
+        let team = Team()
         
         team.name = json["name"] as? String
         team.code = json["code"] as? String
@@ -141,7 +141,7 @@ public class DataParser: NSObject {
     
     private class func fulfillPlayer(json: Dictionary <String, AnyObject>) -> Player {
         
-        var player = Player()
+        let player = Player()
         
         player.name = json["name"] as? String
         player.position = json["position"] as? String
@@ -156,7 +156,7 @@ public class DataParser: NSObject {
     
     private class func fulfillFixture(json: Dictionary <String, AnyObject>) -> Fixture {
         
-        var fixture = Fixture()
+        let fixture = Fixture()
         
         fixture.date = json["date"] as? String
         fixture.status = json["status"] as? String
@@ -182,7 +182,7 @@ public class DataParser: NSObject {
     
     private class func fulfillCompetitionTable(json: Dictionary <String, AnyObject>) -> CompetitionTable? {
         
-        var leagueTable = CompetitionTable()
+        let leagueTable = CompetitionTable()
         
         leagueTable.leagueCaption = json["leagueCaption"] as? String
         leagueTable.matchday = json["matchday"] as? Int
